@@ -96,11 +96,11 @@ namespace Bit.Setup
 # Parameter:CoreVersion={CoreVersion}
 # Parameter:WebVersion={WebVersion}
 
-version: '3'
+version: '2'
 
 services:
   mssql:
-    image: bitwarden/mssql:{CoreVersion}
+    image: nielscil/bitwarden-mssql:latest
     container_name: bitwarden-mssql
     restart: always
     volumes:");
@@ -125,7 +125,7 @@ services:
       - ../env/mssql.override.env
 
   web:
-    image: bitwarden/web:{WebVersion}
+    image: nielscil/bitwarden-web:latest
     container_name: bitwarden-web
     restart: always
     volumes:
@@ -134,7 +134,7 @@ services:
       - ../env/uid.env
 
   attachments:
-    image: bitwarden/attachments:{CoreVersion}
+    image: nielscil/bitwarden-attachments:latest
     container_name: bitwarden-attachments
     restart: always
     volumes:
@@ -143,7 +143,7 @@ services:
       - ../env/uid.env
 
   api:
-    image: bitwarden/api:{CoreVersion}
+    image: nielscil/bitwarden-api:latest
     container_name: bitwarden-api
     restart: always
     volumes:
@@ -156,7 +156,7 @@ services:
       - ../env/global.override.env
 
   identity:
-    image: bitwarden/identity:{CoreVersion}
+    image: nielscil/bitwarden-identity:latest
     container_name: bitwarden-identity
     restart: always
     volumes:
@@ -170,7 +170,7 @@ services:
       - ../env/global.override.env
 
   admin:
-    image: bitwarden/admin:{CoreVersion}
+    image: nielscil/bitwarden-admin:latest
     container_name: bitwarden-admin
     restart: always
     volumes:
@@ -183,14 +183,14 @@ services:
       - ../env/global.override.env
 
   icons:
-    image: bitwarden/icons:{CoreVersion}
+    image: nielscil/bitwarden-icons:latest
     container_name: bitwarden-icons
     restart: always
     env_file:
       - ../env/uid.env
 
   nginx:
-    image: bitwarden/nginx:{CoreVersion}
+    image: nielscil/bitwarden-nginx:latest
     container_name: bitwarden-nginx
     restart: always
     ports:");
